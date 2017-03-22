@@ -1,2 +1,5 @@
-console.log('it works')
+class A {
+    hello() { console.log('it works'); }
+}
 
+(new A).hello();
