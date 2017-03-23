@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webapack"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "Brian Douglas <hello@briandouglas.me>",
@@ -15,7 +15,11 @@
     "babel-core": "6.24.0",
     "babel-loader": "6.4.1",
     "babel-preset-env": "1.2.2",
+    "babel-preset-react": "6.23.0",
     "webpack": "2.3.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "15.4.2",
+    "react-dom": "15.4.2"
+  }
 }

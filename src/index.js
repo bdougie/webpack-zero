@@ -1,5 +1,7 @@
-class World {
-    hello() { console.log('it works'); }
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HelloWorld from './HelloWorld';
 
-(new World).hello();
+const root = document.getElementById('root');
+
+ReactDOM.render(<HelloWorld />, root);
