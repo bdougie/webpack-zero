@@ -1,5 +1,5 @@
-class A {
+class World {
     hello() { console.log('it works'); }
 }
 
-(new A).hello();
+(new World).hello();
