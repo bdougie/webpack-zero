@@ -1,7 +1,9 @@
 import React from 'react';
+import {cube} from './lib/math';
 
 export default class HelloWorld extends React.Component {
   render() {
-    return <h1>Hello, World!</h1>;
+    const cubed = cube(6);
+    return <h1>Hello, `${cubed}` World!</h1>;
   }
 }
