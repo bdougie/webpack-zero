@@ -6,7 +6,7 @@ Just trying out webpack from zero, all code came from this [post](http://www.jum
   Pull Request #1
   
 - Step 3: src/index.js
-- Step 4: input, output - dist/bundle.js
+- Step 4: input, output - build/bundle.js
   Pull Request #2
 
 - Step 5: add babel loader
