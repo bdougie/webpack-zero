@@ -27,8 +27,8 @@ At the 2016 Chrome Dev Summit, Addy Osmani shared a remarkable revelation showin
 Now that webpack has found its way into a large of amount of boilerplates and CLI generated templates that provide little to no configuration and learning needed. Templates are great but there is a lot of value with understanding the underlying tools, which is why I am going walk you through how to get webpack up and running in a React application by confidently using just the webpack-cli and nothing more. 
 
 Staring webpack from scratch
-![](https://media.giphy.com/media/3jI8ZR6CKhu3S/giphy.gif)
 
+![](https://media.giphy.com/media/3jI8ZR6CKhu3S/giphy.gif)
 
 The follow tutorial will use npm to manage dependencies so please make sure you have it installed on your environment before you begin. Please be sure to confirm you are using npm 5 and node 8 or later. 
 
