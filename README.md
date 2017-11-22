@@ -15,31 +15,6 @@
 - Step 6: Add React Code...
 
 ## Tutorial
-Webpack from scratch
-alt-title: Wickity wickity Webpack
-
-audience: webpack newbs
-
-Outline:
-What is webpack?
-
-- Basic concepts of webpack
-
-Tutorial 
-
-- setup webpack build
-- add babel
-- add react
-- talk code splitting
-
-Moved this section to the build tool shoutout to avoid repeating the same info I put there and in the +Understanding the "why" of build tools  post
-How is webpack different from the others others?
-
-- bundling
-- no scripting (focused on one thing and does it great)
-
-
-← article starts here →
 Webpack is a build tool for modern web applications. When webpack bundles your application, it recursively builds a dependency graph that includes every module your application needs. From this graph it then packages all of those modules into one or more bundles.
 
 This concept of module bundling is not unique to webpack, but its approach has help it take the spot as the most popular build tool for bundling your application. Part of this is to due to the React community adopting webpack pretty early on and creating more awareness around the idea of bundling Singe Page Apps into static assets. 
@@ -52,6 +27,7 @@ At the 2016 Chrome Dev Summit, Addy Osmani shared a remarkable revelation showin
 Now that webpack has found its way into a large of amount of boilerplates and CLI generated templates that provide little to no configuration and learning needed. Templates are great but there is a lot of value with understanding the underlying tools, which is why I am going walk you through how to get webpack up and running in a React application by confidently using just the webpack-cli and nothing more. 
 
 Staring webpack from scratch
+
 ![](https://media.giphy.com/media/3jI8ZR6CKhu3S/giphy.gif)
 
 
