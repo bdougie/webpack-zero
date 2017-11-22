@@ -15,6 +15,31 @@
 - Step 6: Add React Code...
 
 ## Tutorial
+Webpack from scratch
+alt-title: Wickity wickity Webpack
+
+audience: webpack newbs
+
+Outline:
+What is webpack?
+
+- Basic concepts of webpack
+
+Tutorial 
+
+- setup webpack build
+- add babel
+- add react
+- talk code splitting
+
+Moved this section to the build tool shoutout to avoid repeating the same info I put there and in the +Understanding the "why" of build tools  post
+How is webpack different from the others others?
+
+- bundling
+- no scripting (focused on one thing and does it great)
+
+
+← article starts here →
 Webpack is a build tool for modern web applications. When webpack bundles your application, it recursively builds a dependency graph that includes every module your application needs. From this graph it then packages all of those modules into one or more bundles.
 
 This concept of module bundling is not unique to webpack, but its approach has help it take the spot as the most popular build tool for bundling your application. Part of this is to due to the React community adopting webpack pretty early on and creating more awareness around the idea of bundling Singe Page Apps into static assets. 
@@ -27,12 +52,12 @@ At the 2016 Chrome Dev Summit, Addy Osmani shared a remarkable revelation showin
 Now that webpack has found its way into a large of amount of boilerplates and CLI generated templates that provide little to no configuration and learning needed. Templates are great but there is a lot of value with understanding the underlying tools, which is why I am going walk you through how to get webpack up and running in a React application by confidently using just the webpack-cli and nothing more. 
 
 Staring webpack from scratch
-
 ![](https://media.giphy.com/media/3jI8ZR6CKhu3S/giphy.gif)
+
 
 The follow tutorial will use npm to manage dependencies so please make sure you have it installed on your environment before you begin. Please be sure to confirm you are using npm 5 and node 8 or later. 
 
-I recently made scones from scratch and it was a mind opening experience. In addition to all the steps it took, one included adding cold butter to flour with my bare hands and it felt wrong, but at the end of that experience I had a tasty scone. I say this because the following might feel weird and I am going to ask you to trust me because at the end of this we are going to have a fully baked and production ready React application from scratch.
+I recently made scones from scratch and it was a mind opening experience. In addition to all the steps it took, one included adding cold butter to flour with my bare hands and it felt wrong (mostly because I am new to baking), but at the end of that experience I had a tasty scone. I say this because the following might feel weird and I am going to ask you to trust me because at the end of this we are going to have a fully baked and production ready React application from scratch.
 
 Open up your terminal or equivalent command line prompt and create a folder called webpack-from-scratch move into that newly created directory.
 
@@ -105,7 +130,7 @@ The Entry is what webpack actually bundles. You can have multiple entry points t
 
 
     // index.js
-    echo console.log('¡Hola Mundo!') > index.js
+    console.log('¡Hola Mundo!')
 
 Now add index.js to the Entry point of your webpack module. 
 
@@ -223,7 +248,7 @@ Replace the below code in your index.js and run the webpack CLI.
     
     (new World).hello();
 
-You will see that there were no issues when working and the code was bundled successfully. There are some browsers and environments that cannot not use the latest JavaScript. This is where we can use a babel-loader. 
+You will see that there were no issues reported to the console and the code was bundled successfully. There are some browsers and environments that cannot not use the latest JavaScript. This is where we can use a babel-loader. 
 
 
     npm install babel-loader babel-preset-env -D 
@@ -273,7 +298,7 @@ Run the webpack CLI and note that the bundle.js is now represented as the older 
       _createClass(World, [{
         key: 'hello',
         value: function hello() {
-          console.log('it works');
+          console.log('¡Hola Mundo!');
         }
       }]);
     
@@ -298,7 +323,7 @@ Run the webpack CLI and take note of you bundle.js size. For just a little bit o
     bundle.js  2.5 kB       0  [emitted]  main
        [0] ./index.js 28 bytes {0} [built]
 
-Add a new key to our webpack module, plugins, and include the UglifyJS webpack optimize plugin.
+Add a new key to our webpack module, plugins, and include the UglifyJS webpack optimize plugin. You will also need to add the path module for the ability to provide path context to the webpack loader.
 
 
     const path = require('path'); // add this for path context in loader
@@ -328,14 +353,14 @@ Add a new key to our webpack module, plugins, and include the UglifyJS webpack o
 Now run the webpack CLI, your bundle size should be significantly smaller. This is because all whitespace and comments have removed. All variables have been replaced with single characters, all for the sake of saving space. 
 
 
-    !function(n){function e(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return n[r].call(o.exports,o,o.exports,e),o.l=!0,o.exports}var t={};e.m=n,e.c=t,e.d=function(n,t,r){e.o(n,t)||Object.defineProperty(n,t,{configurable:!1,enumerable:!0,get:r})},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,e){return Object.prototype.hasOwnProperty.call(n,e)},e.p="",e(e.s=0)}([function(n,e,t){"use strict";function r(n,e){if(!(n instanceof e))throw new TypeError("Cannot call a class as a function")}var o=function(){function n(n,e){for(var t=0;t<e.length;t++){var r=e[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(n,r.key,r)}}return function(e,t,r){return t&&n(e.prototype,t),r&&n(e,r),e}}();(new(function(){function n(){r(this,n)}return o(n,[{key:"hello",value:function(){console.log("it works")}}]),n}())).hello()}]);
+    !function(n){function e(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return n[r].call(o.exports,o,o.exports,e),o.l=!0,o.exports}var t={};e.m=n,e.c=t,e.d=function(n,t,r){e.o(n,t)||Object.defineProperty(n,t,{configurable:!1,enumerable:!0,get:r})},e.n=function(n){var t=n&&n.__esModule?function(){return n.default}:function(){return n};return e.d(t,"a",t),t},e.o=function(n,e){return Object.prototype.hasOwnProperty.call(n,e)},e.p="",e(e.s=0)}([function(n,e,t){"use strict";function r(n,e){if(!(n instanceof e))throw new TypeError("Cannot call a class as a function")}var o=function(){function n(n,e){for(var t=0;t<e.length;t++){var r=e[t];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(n,r.key,r)}}return function(e,t,r){return t&&n(e.prototype,t),r&&n(e,r),e}}();(new(function(){function n(){r(this,n)}return o(n,[{key:"hello",value:function(){console.log("¡Hola Mundo!")}}]),n}())).hello()}]);
 
 This is significantly harder to read for debugging purposes, which is why browsers have the ability to pretty print the contents from the web console. That does not account for the variable name changes, which can be tweak in the options for the plugin. You can also take advantage of this feature without adding the plugin by just adding the `-p` flag (production) to your webpack command line invocation. This will run UglifyJS without needing to include it and save the readability hassle when debugging locally.
 
 
     webpack -p 
 
-Run the webpack CLI and take not of you bundle.js size. We were able to shave off a 2kb’s just from minification.
+Run the webpack CLI with the mentioned `-p` flag and take note of you bundle.js size. We were able to shave off a 2kb’s just from minification.
 
 
     $ webpack -p
@@ -352,7 +377,15 @@ Now time for React
 React is a library that makes creating UI and the components much easier. We will need to add a few React dependencies before getting started. 
 
 
-    npm install 
+    npm install react react-dom
+    npm install babel-preset-react -D
+
+Add the babel-react-react  to the .babelrc file.
+ 
+
+    {
+      presets: ["env"]
+    }
 
 Create a new file, called index.html, trust me this is going to be great. Take note, that we re setting a script tag to point to our bundle.js. The body also includes a div tag with a root id.
 
@@ -371,34 +404,116 @@ Create a new file, called index.html, trust me this is going to be great. Take n
     </body>
     </html>
 
-Create you first React component with the JSX code below. If you are not familiar with React I recommend checking out their getting started tutorial.
+Update the index.js to use React code with the JSX code below. If you are not familiar with React I recommend checking out their getting started tutorial.
 
 
-    // HelloWorld.js
     import React from 'react';
+    import ReactDOM from 'react-dom';
     
-    export default class HelloWorld extends React.Component {
+    class HelloWorld extends React.Component {
       render() {
-        return <h1>Hello, World!</h1>;
+        return <h1>¡Hola Mundo!</h1>;
       }
     }
 
-Finally update the index.js to use the React code we created and pointing the rendering to the root div.
+Finally point the ReactDOM rendering to the root div and include the HelloWord component.
 
 
     // index.js
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    import HelloWorld from './HelloWorld';
+    ...
     
+    // add this to the bottom of your index.js
     const root = document.getElementById('root');
     
-    ReactDOM.render(<HelloWorld />, root);
+    ReactDOM.render(HelloWorld, root);
 
-We now have a working React app. Thanks to webpack for doing most of the work and babel for getting on JSX on the page. If you open the index.html you be able to see you Hello World. If you are feeling like you want to share your experience, you can even deploy your project using Netlify. Just drag your folder onto the Netlify dashboard. 
+Holy biscuits! We now have a React app. Thanks to webpack for doing most of the work and babel for getting on JSX on the page. If you open the index.html you be able to see el mundo glorioso.
 
-[screenshot example]
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_6C52E34C351224F33CA7850D2D802587DC56DED6F00E804B1E1B2454768600E1_1511306037881_Screenshot+2017-11-21+15.13.39.png)
 
-What now?
+Deploy your site to production
 
-Webpack is a powerful tool that can do much more than just bundle your project. I hope you have a good foundation for understanding new and existing webpack configs. Check out the webpack documentation to find out how you add code splitting, compression, and more to your project. I go over that as well in a previous post on what build tools can do for you.
+I assume you would like you want to share this experience with others and you can by deploying this amazing project to Netlify. There are a few things you need to do to make that happen.
+
+So far we have been using the webpack CLI to build. We also found out the the production flag is preferred. Add the the webpack command to your npm scripts so we can always run the production, even if we don’t think about it. 
+
+
+    {
+      ...,
+      "scripts": {
+        "build": "webpack -p"
+      },
+      ...
+    }
+
+We should now add the html-webpack-plugin to new index.html.
+
+
+    npm install html-webpack-plugin -D
+
+Now remove the script tag from our index.html.
+
+
+    <!-- index.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>React App</title>
+    </head>
+    <body>
+        <div id='root'></div>
+    </body>
+    </html>
+
+Update the webpack.config.js to use the HtmlWebpackPlugin. I also am going make a change where instead of bundle in to the root ./bundle.js, I will now bundle into a build folder.  
+
+
+    const path = require('path');
+    const webpack = require('webpack');
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
+    
+    module.exports = {
+      entry: './index.js',
+      output: {
+        // move bundle.js to a folder instead the root 
+        path: path.resolve('./build'),
+        filename: 'bundle.js'
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            include: path.resolve('./index.js'),
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: require('./.babelrc'),
+          }
+        ]
+      },
+      plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
+        // New plugin
+        new HtmlWebpackPlugin({
+          // injects bundle.js to our new index.html
+          inject: true,
+          // copys the content of the existing index.html to the new /build index.html
+          template:  path.resolve('./index.html'),
+        }),
+      ]
+    }
+
+Now run npm run build to produce a new build folder that looks like the following:
+
+    ├── build
+    │   ├── bundle.js
+    │   └── index.html 
+
+With this addition, we can run a production build using `npm run build`, this is helpful when using the Netlify Continuous Deployment feature. Be sure to also set your build location as build.
+
+https://www.youtube.com/watch?v=mN9oI98As_4&
+
+What is next?
+
+Webpack is a powerful tool that can do much more than just bundle your project. I hope you have a good foundation for understanding new and existing webpack configs. Check out the webpack documentation to find out how you add code splitting, compression, and adding a development server to your project. I go over that as well in a previous post on what build tools can do for you.
